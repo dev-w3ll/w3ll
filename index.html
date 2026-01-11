@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>W3LL | Desenvolvedor Full Stack</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="logo">&lt;W3LL/&gt;</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="greeting">Olá, eu sou</p>
+          <h1 class="glitch" data-text="W3LL">W3LL</h1>
+          <h2 class="typewriter">Desenvolvedor Full Stack</h2>
+          <p class="description">
+            Transformando ideias em código. Criando soluções digitais inovadoras
+            e experiências incríveis.
+          </p>
+          <div class="cta-buttons">
+            <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+            <a href="#contato" class="btn btn-outline">Contato</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="code-window">
+            <div class="window-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <pre class="code-block">
+<code><span class="keyword">const</span> <span class="variable">developer</span> = {
+  <span class="property">name</span>: <span class="string">"W3LL"</span>,
+  <span class="property">skills</span>: [<span class="string">"JavaScript"</span>, <span class="string">"Python"</span>, <span class="string">"React"</span>],
+  <span class="property">passion</span>: <span class="string">"Criar coisas incríveis"</span>,
+  <span class="property">coffee</span>: <span class="boolean">true</span>,
+  
+  <span class="function">code</span>() {
+    <span class="keyword">return</span> <span class="string">"Soluções criativas"</span>;
+  }
+};</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="mouse"></div>
+      </div>
+    </section>
+
+    <section id="sobre" class="about">
+      <div class="container">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <div class="image-frame">
+              <div class="avatar">W3LL</div>
+            </div>
+          </div>
+          <div class="about-text">
+            <h3>Quem é W3LL?</h3>
+            <p>
+              Sou um desenvolvedor apaixonado por tecnologia e inovação. Com
+              experiência em desenvolvimento web e aplicações, busco sempre
+              criar soluções elegantes para problemas complexos.
+            </p>
+            <p>
+              Minha jornada na programação começou com curiosidade e se
+              transformou em uma paixão por criar experiências digitais que
+              fazem a diferença.
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Projetos</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">3+</span>
+                <span class="stat-label">Anos de Exp.</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Cafés</span>
+              </div>
+            </div>
+            <a href="#" class="btn btn-primary">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills & Tecnologias</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Frontend</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-icon">⚛️</span>
+                <span>React</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🟨</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🔷</span>
+                <span>TypeScript</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🎨</span>
+                <span>CSS/Sass</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🌐</span>
+                <span>HTML5</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Backend</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-icon">🐍</span>
+                <span>Python</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🟢</span>
+                <span>Node.js</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🗄️</span>
+                <span>PostgreSQL</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🍃</span>
+                <span>MongoDB</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🔥</span>
+                <span>Firebase</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Ferramentas</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-icon">🐙</span>
+                <span>Git</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🐳</span>
+                <span>Docker</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">☁️</span>
+                <span>AWS</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">🎯</span>
+                <span>Figma</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">💻</span>
+                <span>VS Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="projects">
+      <div class="container">
+        <h2 class="section-title">Projetos em Destaque</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <div class="project-placeholder">🛒</div>
+              <div class="project-overlay">
+                <a href="ecommerce/venda.html" class="project-link">Vender</a>
+                <a href="#" class="project-link">GitHub</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>E-Commerce Platform</h3>
+              <p>
+                Plataforma de e-commerce completa com carrinho, pagamentos e
+                painel admin.
+              </p>
+              <div class="project-tags">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <div class="project-placeholder">🚀</div>
+              <div class="project-overlay">
+                <a href="#" class="project-link">Ver Projeto</a>
+                <a href="#" class="project-link">GitHub</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Sistema Financeiro</h3>
+              <p>
+                Aplicação completa para gestão financeira pessoal com dashboards
+                interativos.
+              </p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>CustomTkinter</span>
+                <span>SQLite</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <div class="project-placeholder">📱</div>
+              <div class="project-overlay">
+                <a href="#" class="project-link">Ver Projeto</a>
+                <a href="#" class="project-link">GitHub</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Task Manager App</h3>
+              <p>
+                Aplicativo de gerenciamento de tarefas com sincronização em
+                tempo real.
+              </p>
+              <div class="project-tags">
+                <span>React Native</span>
+                <span>Firebase</span>
+                <span>Redux</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <div class="project-placeholder">🤖</div>
+              <div class="project-overlay">
+                <a href="#" class="project-link">Ver Projeto</a>
+                <a href="#" class="project-link">GitHub</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>AI ChatBot</h3>
+              <p>Chatbot inteligente com processamento de linguagem natural.</p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>TensorFlow</span>
+                <span>Flask</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact">
+      <div class="container">
+        <h2 class="section-title">Vamos Conversar?</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Entre em Contato</h3>
+            <p>
+              Tem um projeto em mente? Quer colaborar? Ou só quer trocar uma
+              ideia sobre tecnologia? Manda uma mensagem!
+            </p>
+            <div class="contact-links">
+              <a href="mailto:w3ll@email.com" class="contact-item">
+                <span class="contact-icon">📧</span>
+                <span>w3ll@email.com</span>
+              </a>
+              <a href="#" class="contact-item">
+                <span class="contact-icon">💼</span>
+                <span>LinkedIn</span>
+              </a>
+              <a href="#" class="contact-item">
+                <span class="contact-icon">🐙</span>
+                <span>GitHub</span>
+              </a>
+              <a href="#" class="contact-item">
+                <span class="contact-icon">📷</span>
+                <span>Instagram</span>
+              </a>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Seu Nome" required />
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Seu Email" required />
+            </div>
+            <div class="form-group">
+              <input type="text" id="subject" placeholder="Assunto" />
+            </div>
+            <div class="form-group">
+              <textarea
+                id="message"
+                placeholder="Sua Mensagem"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Enviar Mensagem 🚀
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <a href="#" class="logo">&lt;W3LL/&gt;</a>
+          <p>Feito com 💜 e muito ☕ por W3LL</p>
+          <p class="copyright">© 2025 W3LL. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

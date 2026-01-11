@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce | Sistema de Vendas e Recibos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">🛒</span>
+                <h1>W3LL</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-section="vendas">
+                    <span class="nav-icon">💰</span>
+                    <span>Nova Venda</span>
+                </a>
+                <a href="#" class="nav-item" data-section="produtos">
+                    <span class="nav-icon">📦</span>
+                    <span>Produtos</span>
+                </a>
+                <a href="#" class="nav-item" data-section="historico">
+                    <span class="nav-icon">📋</span>
+                    <span>Histórico</span>
+                </a>
+                <a href="#" class="nav-item" data-section="recibos">
+                    <span class="nav-icon">🧾</span>
+                    <span>Recibos</span>
+                </a>
+                <a href="#" class="nav-item" data-section="empresa">
+                    <span class="nav-icon">🏢</span>
+                    <span>Empresa</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="btn-logout">
+                    <span>🚪</span>
+                    <span>Sair do Sistema</span>
+                </a>
+                <p>© 2025 W3LL</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Seção Nova Venda -->
+            <section id="vendas" class="section active">
+                <header class="section-header">
+                    <h2>Nova Venda</h2>
+                    <p>Adicione produtos e finalize a venda</p>
+                </header>
+
+                <div class="sales-container">
+                    <div class="products-panel">
+                        <div class="search-box">
+                            <input type="text" id="searchProduct" placeholder="🔍 Buscar produto...">
+                        </div>
+                        <div class="products-grid" id="productsGrid">
+                            <!-- Produtos serão inseridos via JS -->
+                        </div>
+                    </div>
+
+                    <div class="cart-panel">
+                        <div class="cart-header">
+                            <h3>🛒 Carrinho</h3>
+                            <button class="btn-clear" id="clearCart">Limpar</button>
+                        </div>
+                        <div class="cart-items" id="cartItems">
+                            <p class="cart-empty">Carrinho vazio</p>
+                        </div>
+                        <div class="cart-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Desconto:</span>
+                                <div class="discount-input">
+                                    <input type="number" id="discountPercent" value="0" min="0" max="100">
+                                    <span>%</span>
+                                </div>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="totalAmount">R$ 0,00</span>
+                            </div>
+                        </div>
+                        <div class="payment-section">
+                            <h4>Forma de Pagamento</h4>
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="dinheiro" checked>
+                                    <span>💵 Dinheiro</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="pix">
+                                    <span>📱 PIX</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="credito">
+                                    <span>💳 Crédito</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="debito">
+                                    <span>💳 Débito</span>
+                                </label>
+                            </div>
+                            <div class="installments-section" id="installmentsSection" style="display: none;">
+                                <label for="installments">Parcelas:</label>
+                                <select id="installments">
+                                    <option value="1">1x (à vista)</option>
+                                    <option value="2">2x</option>
+                                    <option value="3">3x</option>
+                                    <option value="4">4x</option>
+                                    <option value="5">5x</option>
+                                    <option value="6">6x</option>
+                                    <option value="7">7x</option>
+                                    <option value="8">8x</option>
+                                    <option value="9">9x</option>
+                                    <option value="10">10x</option>
+                                    <option value="11">11x</option>
+                                    <option value="12">12x</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="customer-section">
+                            <h4>Dados do Cliente (Opcional)</h4>
+                            <input type="text" id="customerName" placeholder="Nome do cliente">
+                            <input type="text" id="customerCpf" placeholder="CPF (opcional)">
+                        </div>
+                        <button class="btn-checkout" id="finalizeSale">
+                            Finalizar Venda 🚀
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Produtos -->
+            <section id="produtos" class="section">
+                <header class="section-header">
+                    <h2>Gerenciar Produtos</h2>
+                    <button class="btn-primary" id="addProductBtn">+ Novo Produto</button>
+                </header>
+                <div class="products-table-container">
+                    <table class="products-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Produto</th>
+                                <th>Categoria</th>
+                                <th>Preço</th>
+                                <th>Estoque</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <!-- Produtos serão inseridos via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Seção Histórico -->
+            <section id="historico" class="section">
+                <header class="section-header">
+                    <h2>Histórico de Vendas</h2>
+                    <div class="filter-group">
+                        <input type="date" id="filterDate">
+                        <button class="btn-secondary" id="filterBtn">Filtrar</button>
+                        <button class="btn-danger" id="clearHistoryBtn">🗑️ Limpar Histórico</button>
+                    </div>
+                </header>
+                <div class="sales-stats">
+                    <div class="stat-card">
+                        <span class="stat-icon">📊</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="totalSales">0</span>
+                            <span class="stat-label">Vendas Hoje</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">💰</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="totalRevenue">R$ 0,00</span>
+                            <span class="stat-label">Faturamento</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🛍️</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="totalItems">0</span>
+                            <span class="stat-label">Itens Vendidos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sales-history-table">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Nº Venda</th>
+                                <th>Data/Hora</th>
+                                <th>Cliente</th>
+                                <th>Itens</th>
+                                <th>Total</th>
+                                <th>Pagamento</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesHistoryBody">
+                            <!-- Histórico será inserido via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Seção Recibos -->
+            <section id="recibos" class="section">
+                <header class="section-header">
+                    <h2>Recibos Emitidos</h2>
+                    <div class="filter-group">
+                        <input type="text" id="searchReceipt" placeholder="🔍 Buscar por número ou cliente...">
+                        <button class="btn-danger" id="clearReceiptsBtn">🗑️ Limpar Recibos</button>
+                    </div>
+                </header>
+                <div class="receipts-grid" id="receiptsGrid">
+                    <!-- Recibos serão inseridos via JS -->
+                </div>
+            </section>
+
+            <!-- Seção Empresa -->
+            <section id="empresa" class="section">
+                <header class="section-header">
+                    <h2>Gerenciar Empresas</h2>
+                    <button class="btn-primary" id="addEmpresaBtn">+ Nova Empresa</button>
+                </header>
+                
+                <div class="empresa-ativa-container">
+                    <h3>🏢 Empresa Ativa no Recibo</h3>
+                    <select id="empresaAtivaSelect" class="empresa-select">
+                        <!-- Opções serão inseridas via JS -->
+                    </select>
+                </div>
+
+                <div class="empresas-table-container">
+                    <table class="empresas-table">
+                        <thead>
+                            <tr>
+                                <th>Logo</th>
+                                <th>Nome</th>
+                                <th>CNPJ</th>
+                                <th>Endereço</th>
+                                <th>Telefone</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="empresasTableBody">
+                            <!-- Empresas serão inseridas via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Recibo -->
+    <div class="modal" id="receiptModal">
+        <div class="modal-content receipt-modal">
+            <div class="receipt" id="receiptContent">
+                <div class="receipt-header">
+                    <h2 id="receiptCompanyName">🛒 E-Commerce</h2>
+                    <p id="receiptCompanyCnpj">CNPJ: 00.000.000/0001-00</p>
+                    <p id="receiptCompanyAddress">Rua Exemplo, 123 - Centro</p>
+                    <p id="receiptCompanyPhone">Tel: (00) 0000-0000</p>
+                </div>
+                <div class="receipt-divider">═══════════════════════════</div>
+                <div class="receipt-info">
+                    <p><strong>RECIBO DE VENDA</strong></p>
+                    <p>Nº: <span id="receiptNumber">000001</span></p>
+                    <p>Data: <span id="receiptDate">01/01/2024 10:00</span></p>
+                    <p>Cliente: <span id="receiptCustomer">Consumidor Final</span></p>
+                </div>
+                <div class="receipt-divider">───────────────────────────</div>
+                <div class="receipt-items" id="receiptItems">
+                    <!-- Itens do recibo -->
+                </div>
+                <div class="receipt-divider">───────────────────────────</div>
+                <div class="receipt-totals">
+                    <p>Subtotal: <span id="receiptSubtotal">R$ 0,00</span></p>
+                    <p>Desconto: <span id="receiptDiscount">R$ 0,00</span></p>
+                    <p class="receipt-total"><strong>TOTAL: <span id="receiptTotal">R$ 0,00</span></strong></p>
+                </div>
+                <div class="receipt-divider">───────────────────────────</div>
+                <div class="receipt-payment">
+                    <p>Forma de Pagamento: <span id="receiptPayment">Dinheiro</span></p>
+                </div>
+                <div class="receipt-divider">═══════════════════════════</div>
+                <div class="receipt-footer">
+                    <p>Obrigado pela preferência!</p>
+                    <p>Volte sempre!</p>
+                    <p class="receipt-timestamp" id="receiptTimestamp"></p>
+                </div>
+            </div>
+            <div class="receipt-actions">
+                <button class="btn-secondary" id="closeReceipt">Fechar</button>
+                <button class="btn-primary" id="printReceipt">🖨️ Imprimir</button>
+                <button class="btn-success" id="downloadReceipt">📥 Baixar PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Produto -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <h3>Novo Produto</h3>
+            <form id="productForm">
+                <div class="form-group">
+                    <label>Nome do Produto</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select id="productCategory">
+                        <option value="Eletrônicos">Eletrônicos</option>
+                        <option value="Roupas">Roupas</option>
+                        <option value="Alimentos">Alimentos</option>
+                        <option value="Serviços">Serviços</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preço</label>
+                        <input type="number" id="productPrice" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Estoque</label>
+                        <input type="number" id="productStock" min="0" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelProduct">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Empresa -->
+    <div class="modal" id="empresaModal">
+        <div class="modal-content">
+            <h3 id="empresaModalTitle">Nova Empresa</h3>
+            <form id="empresaForm">
+                <input type="hidden" id="empresaId">
+                <div class="form-group">
+                    <label>Nome da Empresa</label>
+                    <input type="text" id="empresaNome" placeholder="Ex: Minha Loja" required>
+                </div>
+                <div class="form-group">
+                    <label>CNPJ</label>
+                    <input type="text" id="empresaCnpj" placeholder="00.000.000/0001-00" required>
+                </div>
+                <div class="form-group">
+                    <label>Endereço</label>
+                    <input type="text" id="empresaEndereco" placeholder="Rua Exemplo, 123 - Centro" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="text" id="empresaTelefone" placeholder="(00) 0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label>Emoji/Logo</label>
+                    <input type="text" id="empresaEmoji" placeholder="🛒" maxlength="4">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelEmpresa">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="data.js"></script>
+    <script src="empresa.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
